@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// RUTAS PROVISORIAS PARA DESARROLLO DE DISEÑO 
 
 Route::get('/', function () {
+    return view('admin/login');
+})->name('login');
+
+Route::get('/menu', function () {
     return view('admin/layout');
-});
+})->name('menu-profe');
+
