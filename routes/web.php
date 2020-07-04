@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('admin/login');
 })->name('login');
 
-Route::get('/menu', function () {
-    return view('admin/layout');
+Route::get('/agregar-alumno', function () {
+    return view('admin/agregar_alumno');
 })->name('menu-profe');
 

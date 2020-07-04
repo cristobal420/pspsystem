@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Starter</title>
+  <title>PSPSYSTEM | Agregar alumno</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,7 +30,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="AdminLte/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="AdminLte/img/AdminLTELogo.png" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">PSP SYSTEM</span>
     </a>
 
@@ -39,10 +39,10 @@
       <!-- ESTO ES EL USUARIO CON SU FOTITO -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="AdminLte/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="AdminLte/img/user5-128x128.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nombre del Profesor</a>
+          <a href="#" class="d-block">Belen Manzano</a>
         </div>
       </div>
 
@@ -50,7 +50,30 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- ESTO ES EL SIDEBARD DEL LADO IZQUIERO DE LA PANTALLA !! -->
-          
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Gestion de alumnos
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Agregar alumnos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Visualizar alumnos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -65,12 +88,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Pagina de inicio</h1>
+            <!-- <h1 class="m-0 text-dark">Agregar Nuevo Alumno</h1> -->
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active">Pagina de inicio</li>
+              <li class="breadcrumb-item active">Agregar Nuevo Alumno</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -82,15 +105,50 @@
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          
+  
+          <div class="card card-primary col-12">
 
-        {{-- AQUI VA EL CONTENIDO --}}
+            <div class="card-header">
+              <h3 class="card-title">Agregar alumno nuevo</h3>
+            </div>
 
+            
+            <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="rut">RUT</label>
+                    <input type="text" class="form-control" id="rut" placeholder="Ingrese el RUT del alumno">
+                  </div>
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del alumno">
+                  </div>
+                  <div class="form-group">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" placeholder="Ingrese apellidos del alumno">
+                  </div>
+                  <div class="form-group">
+                    <label for="fnac">Fecha nacimiento</label>
+                    <input type="date" class="form-control" id="fnac" >
+                  </div>
+                  <div class="form-group">
+                    <label>Diagnostico a Necesidades Educativas Especiales</label>
+                      <select class="custom-select">
+                        <option> NEE de tipo permanente</option>
+                        <option> NEE de tipo transitoria</option>
+                      </select>
+                  </div>
+                </div>
+                
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Agregar</button>
+                </div>
+            </form>
 
+          </div>
 
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+        </div><!--fin row-->
+      </div>
     </div>
     <!-- /.content -->
   </div>
