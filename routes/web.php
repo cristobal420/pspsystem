@@ -21,5 +21,9 @@ Route::get('/', function () {
 
 Route::get('/agregar-alumno', function () {
     return view('admin/agregar_alumno');
-})->name('menu-profe');
+})->name('agregar_alumno');
+
+Route::get('/agregar-actividad', function () {
+    return view('admin/agregar_actividad');
+})->name('agregar_actividad');
 
