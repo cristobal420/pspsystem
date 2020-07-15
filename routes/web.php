@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 // RUTAS PROVISORIAS PARA DESARROLLO DE DISEÑO 
 
-Route::get('/', function () {
-	return view('admin/login');
-})->name('login');
+// Route::get('/', function () {
+// 	return view('admin/login');
+// })->name('login');
 
 Route::get('/agregar-alumno', function () {
 	return view('admin/agregar_alumno');
@@ -26,6 +26,10 @@ Route::get('/agregar-alumno', function () {
 Route::get('/agregar-actividad', function () {
 	return view('admin/agregar_actividad');
 })->name('agregar_actividad');
+
+Route::get('/ver-actividades', function () {
+	return view('admin/ver_actividades');
+})->name('ver_activividades');
 
 /* ########## RUTAS DEFINITIVAS ########## */
 Route::get('login', 'LogInController@LogIn')->name('log.in');

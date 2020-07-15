@@ -54,7 +54,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Gestion de alumnos
+                Constructor de actividad
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -62,13 +62,13 @@
               <li class="nav-item">
                 <a href="" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Agregar alumnos</p>
+                  <p>Crear actividad</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Visualizar alumnos</p>
+                  <p>Visualizar actividades</p>
                 </a>
               </li>
             </ul>
