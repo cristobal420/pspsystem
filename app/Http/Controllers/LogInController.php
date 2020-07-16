@@ -21,9 +21,13 @@ class LogInController extends Controller
 
 		// return $datos;
 		if(Auth::guard('profesores')->attempt($datos)){
-			return 'Logeado perfect';
+			return view('admin.menu');
 		}else{
-			return back()->withErrors(['email'=>'Este email no se encuentra en nuestro registros'])
+			return back()
+			->withErrors([
+				'email'=>'Vuelve a ingresar tu email',
+				'password'=>'Vuelve a ingresar tu contraseña',
+			])
 			->withInput(request(['email']));
 		}
 
