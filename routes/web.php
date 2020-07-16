@@ -32,9 +32,10 @@ Route::get('/ver-actividades', function () {
 })->name('ver_activividades');
 
 /* ########## RUTAS DEFINITIVAS ########## */
-Route::get('login', 'LogInController@LogIn')->name('log.in');
+
 Route::group(['prefix' => 'admin'], function() {
-    //
+	Route::get('/', 'LogInController@Acceso')->name('acceso');
+	Route::post('/login', 'LogInController@LogIn')->name('login');
 });
 /* ########## RUTAS DEFINITIVAS ########## */
 

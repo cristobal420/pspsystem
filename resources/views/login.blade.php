@@ -24,23 +24,37 @@
 	<div class="card-body login-card-body">
 	  <p class="login-box-msg">Inicia sesión para comenzar</p>
 
-	  <form action="AdminLte/index3.html" method="post">
-		<div class="input-group mb-3">
-		  <input type="email" class="form-control" placeholder="Email">
+	  <form action="{{ route('login') }}" method="POST">
+	  {{ csrf_field() }}
+
+		<div class="input-group mb-3 ">
+		  <input type="email"
+		   	class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}"
+			name="email"
+			placeholder="Email"
+			value="{{ old('email') }}">
+
 		  <div class="input-group-append">
 			<div class="input-group-text">
 			  <span class="fas fa-envelope"></span>
 			</div>
 		  </div>
+		  
 		</div>
+
+		{!! $errors->first('email') !!}
+
 		<div class="input-group mb-3">
-		  <input type="password" class="form-control" placeholder="Contraseña">
+		  <input type="password" class="form-control  {{ $errors->has('password') ? 'is-invalid' : ''}}" name="password" placeholder="Contraseña">
 		  <div class="input-group-append">
 			<div class="input-group-text">
 			  <span class="fas fa-lock"></span>
 			</div>
 		  </div>
 		</div>
+
+		{!! $errors->first('password') !!}
+
 		<div class="row">
 		  <div class="col-8">
 			<div class="icheck-primary">
