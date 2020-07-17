@@ -13,15 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// RUTAS PROVISORIAS PARA DESARROLLO DE DISEÑO 
-
-
-
-
-Route::get('/ver-actividades', function () {
-	return view('admin/ver_actividades');
-})->name('ver_activividades');
-
 /* ########## RUTAS DEFINITIVAS ########## */
 
 Route::group(['prefix' => 'admin'], function() {
@@ -33,6 +24,8 @@ Route::group(['prefix' => 'admin'], function() {
 
 	Route::get('/agregar-alumno','AdminController@agregarAlumno')->name('agregarAlumno');
 	Route::post('/nuevo-alumno','AdminController@nuevoAlumno')->name('nuevoAlumno');
+	Route::get('/alumnos', 'AdminController@verAlumnos')->name('verAlumnos');
+	Route::delete('/eliminar-alumno/{id}', 'AdminController@eliminarAlumno')->name('eliminarAlumno');
 
 	Route::get('/agregar-actividad','AdminController@agregarActividad')->name('agregarActividad');
 

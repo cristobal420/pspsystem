@@ -39,7 +39,7 @@ class AdminController extends Controller
         $pass = bcrypt('secret');
 
         $alumno = new Alumnos;
-        
+
         $alumno->rut = $request->rut;
         $alumno->nombres = $request->nombres;
         $alumno->apellidos = $request->apellidos;
@@ -55,6 +55,19 @@ class AdminController extends Controller
         return back();
 
     }
+
+    public function verAlumnos(){
+        $alumnos = Alumnos::all();
+        return view('admin/ver_alumnos')
+        ->with('alumnos',$alumnos);
+    }
+
+    public function eliminarAlumno($id){
+        $alumno = Alumnos::find($id);
+        $alumno->delete();
+        return back();
+    }
+
 
     public function agregarActividad()
     {
