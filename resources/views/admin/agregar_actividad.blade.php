@@ -8,12 +8,14 @@
     
 
 <div class="card card-primary col-12">
+
       <div class="card-header">
         <h3 class="card-title">Crear nueva actividad</h3>
       </div>
               <!-- /.card-header -->
               <!-- form start -->
       <form action="{{ route('nuevaActividad') }}" method="POST">
+        
         {{ csrf_field() }}
         <div class="card-body">
           <div class="form-group">
@@ -48,6 +50,7 @@
         <div class="card-footer">
           <button type="submit" class="btn btn-primary">Siguiente paso</button>
         </div>
+
       </form>
     </div>
             <!-- /.card -->

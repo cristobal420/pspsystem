@@ -101,10 +101,17 @@ class AdminController extends Controller
         $actividad->subcategoria_id = $request->subcategorias;
         $actividad->nivel_id = $request->niveles;
         $actividad->save();
+        return redirect()->route('agregarPreguntas',$actividad->id);
 
-        return 'AQUI DEBO REDIRECCIONAR A LA VISTA PARA CREAR LA PREGUNTAS A LA ACTIVIDAD RECIEN CREADA';
 
+    }
 
+    public function agregarPreguntas($actividad){
+        
+        $actividad = Actividades::find($actividad);
+        // dd( $actividad );
+        return view('admin/agregar-preguntas')
+        ->with('actividad',$actividad);
     }
 
 }
