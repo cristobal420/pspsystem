@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorias extends Model
 {
-    protected $table='Categorias';
-    
-    protected  $fillable = [
-        'COD', 'nombre'
-    ];
+	protected $table='categorias';
+	protected  $guarded = [];
+	public function subcategorias ()
+	{
+		return $this->hasMany('App\Subcategorias');
+	}
 }

@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subcategorias extends Model
 {
-    
-    protected $table='Subcategorias';
-
-    protected  $fillable = [
-        'nombre', 'categorias_id'
-    ];
-
+	
+	protected $table='subcategorias';
+	protected  $guarded = [];
+	public function categorias ()
+	{
+		return $this->belongsTo('App\Categorias');
+	}
 
 }
