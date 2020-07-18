@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::delete('/eliminar-alumno/{id}', 'AdminController@eliminarAlumno')->name('eliminarAlumno');
 
 	Route::get('/agregar-actividad','AdminController@agregarActividad')->name('agregarActividad');
+	Route::post('/nueva-actividad','AdminController@nuevaActividad')->name('nuevaActividad');
 
 });
 /* ########## RUTAS DEFINITIVAS ########## */

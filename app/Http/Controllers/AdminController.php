@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Profesores;
 use App\Alumnos;
+use App\Categorias;
+use App\Subcategorias;
+use App\Niveles;
+use App\Actividades;
 
 class AdminController extends Controller
 {
@@ -71,8 +75,36 @@ class AdminController extends Controller
 
     public function agregarActividad()
     {
-        
-        return view('admin/agregar_actividad');
+        $categorias = Categorias::all();
+        $niveles = Niveles::all();
+        return view('admin/agregar_actividad')
+        ->with('categorias',$categorias)
+        ->with('niveles',$niveles);
+    }
+
+    public function apiSubcategorias($id)
+    {
+        return $subcategorias = Subcategorias::where('categorias_id',$id)->get();
+    }
+
+    public function nuevaActividad(Request $request)
+    {
+        $validacion = $request->validate([
+            'nombre' => 'required',
+            'categorias' => 'required',
+            'subcategorias'=> 'required',
+            'niveles' => 'required',
+        ]);
+
+        $actividad = new Actividades;
+        $actividad->nombre = $request->nombre;
+        $actividad->subcategoria_id = $request->subcategorias;
+        $actividad->nivel_id = $request->niveles;
+        $actividad->save();
+
+        return 'AQUI DEBO REDIRECCIONAR A LA VISTA PARA CREAR LA PREGUNTAS A LA ACTIVIDAD RECIEN CREADA';
+
+
     }
 
 }

@@ -41,7 +41,7 @@
           <img src="{{ asset('AdminLte/img/user5-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Belen Manzano</a>
+          <a href="#" class="d-block">{{ Auth::guard('profesores')->user()->nombres }}</a>
         </div>
       </div>
 
@@ -156,6 +156,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('AdminLte/js/adminlte.min.js')}}"></script>
 
+@yield('scripts')
 
 </body>
 </html>
