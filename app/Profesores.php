@@ -7,8 +7,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Profesores extends Authenticatable
 {
-    protected $fillable = [
-        'rut', 'nombres', 'apellidos','fnac','telefono','email','password'
-    ];
+    protected $table='profesores';
+	protected  $guarded = [];
+
+    public function alumnos ()
+	{
+		return $this->hasMany('App\Alumnos');
+	}
 
 }

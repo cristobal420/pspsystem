@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alumnos extends Model
 {
-     protected $fillable = [
-        'rut', 'nombres', 'apellidos','fnac','telefono','email','password','NEE','profesor_id'
-    ];
+    protected $table='alumnos';
+	protected  $guarded = [];
+	public function profesores()
+	{
+		return $this->belongsTo('App\Profesores');
+	}
 }

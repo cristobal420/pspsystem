@@ -16,8 +16,8 @@ class CreateActividadesTable extends Migration
         Schema::create('actividades', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->foreignId('subcategoria_id')->constrained('subcategorias');
-            $table->foreignId('nivel_id')->constrained('niveles');
+            $table->foreignId('subcategorias_id')->constrained('subcategorias');
+            $table->foreignId('niveles_id')->constrained('niveles');
             $table->timestamps();
         });
     }

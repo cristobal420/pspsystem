@@ -8,8 +8,9 @@ class Niveles extends Model
 {
     //
     protected $table='niveles';
-    
-    protected  $fillable = [
-        'COD', 'nivel'
-    ];
+	protected  $guarded = [];
+	public function actividades ()
+	{
+		return $this->hasMany('App\Actividades');
+	}
 }

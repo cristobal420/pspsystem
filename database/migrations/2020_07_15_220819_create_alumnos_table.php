@@ -23,8 +23,8 @@ class CreateAlumnosTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('NEE');
-            $table->unsignedBigInteger('profesor_id');
-            $table->foreign('profesor_id')->references('id')->on('profesores');
+            $table->unsignedBigInteger('profesores_id');
+            $table->foreign('profesores_id')->references('id')->on('profesores');
             $table->timestamps();
         });
     }

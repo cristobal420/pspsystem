@@ -21,7 +21,7 @@ class CreatePreguntasTable extends Migration
             $table->string('alternativa-c');
             $table->string('alternativa-d');
             $table->string('respuesta');
-            $table->foreignId('actividad_id')->constrained('actividades');
+            $table->foreignId('actividades_id')->constrained('actividades');
             $table->timestamps();
         });
     }
