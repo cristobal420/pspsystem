@@ -15,7 +15,7 @@ class CreateProfesoresTable extends Migration
     {
         Schema::create('profesores', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('rut')->unique()->nullable();
+            $table->string('rut',191)->unique()->nullable();
             $table->string('nombres')->nullable();
             $table->string('apellidos')->nullable();
             $table->date('fnac')->nullable();
