@@ -12,6 +12,7 @@ use App\Subcategorias;
 use App\Niveles;
 use App\Actividades;
 use App\Preguntas;
+use App\Respuestas;
 
 class AdminController extends Controller
 {
@@ -116,43 +117,37 @@ class AdminController extends Controller
 
 	public function nuevaPregunta(Request $request, $actividad)
 	{
-		dd($request);
+		// dd($request);
 
 		$pregunta = new Preguntas;
 		$pregunta->pregunta = $request->pregunta;
-		$pregunta['alternativa-a'] = $request['alternativa-a'];
-		$pregunta['alternativa-b'] = $request['alternativa-b'];
-		$pregunta['alternativa-c'] = $request['alternativa-c'];
-		$pregunta['alternativa-d'] = $request['alternativa-d'];
-		if($request['check-a'] == 'A'){
+		$pregunta->actividades_id = $request->actividad;
+		$pregunta->save();
 
-			$resA = $request['check-a'];
-			$pregunta->respuesta = $resA;
-			$pregunta->actividades_id = $request->actividad;
-			$pregunta->save();
+		$respuestas= new Respuestas;
+		$respuestas->preguntas_id = $pregunta->id;
+		$respuestas->respuesta = $request->correcta;
+		$respuestas->correcta = 'si';
+		$respuestas->save();
+		
+		$respuestas= new Respuestas;
+		$respuestas->preguntas_id = $pregunta->id;
+		$respuestas->respuesta = $request->incorrecta1;
+		$respuestas->correcta = 'no';
+		$respuestas->save();
 
-		}if($request['check-b'] == 'B'){
+		$respuestas= new Respuestas;
+		$respuestas->preguntas_id = $pregunta->id;
+		$respuestas->respuesta = $request->incorrecta2;
+		$respuestas->correcta = 'no';
+		$respuestas->save();
 
-			$resB = $request['check-b'];
-			$pregunta->respuesta = $resB;
-			$pregunta->actividades_id = $request->actividad;
-			$pregunta->save();
+		$respuestas= new Respuestas;
+		$respuestas->preguntas_id = $pregunta->id;
+		$respuestas->respuesta = $request->incorrecta3;
+		$respuestas->correcta = 'no';
+		$respuestas->save();
 
-		}if($request['check-c'] == 'C'){
-
-			$resC = $request['check-c'];
-			$pregunta->respuesta = $resC;
-			$pregunta->actividades_id = $request->actividad;
-			$pregunta->save();
-
-		}if($request['check-d'] == 'D'){
-
-			$resD = $request['check-d'];
-			$pregunta->respuesta = $resD;
-			$pregunta->actividades_id = $request->actividad;
-			$pregunta->save();
-		}
-	  
 		return 'se agrego';
 	}
 
