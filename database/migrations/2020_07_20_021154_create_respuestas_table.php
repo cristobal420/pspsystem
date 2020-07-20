@@ -15,6 +15,7 @@ class CreateRespuestasTable extends Migration
 	{
 		Schema::create('respuestas', function (Blueprint $table) {
 			$table->id();
+			$table->foreignId('preguntas_id')->constrained('preguntas')->nullable();
 			$table->string('respuesta')->nullable();
 			$table->string('correcta',2)->nullable();
 			$table->timestamps();
