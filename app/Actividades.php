@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Actividades extends Model
 {
-    //
-    protected $table='actividades';
+	//
+	protected $table='actividades';
 	protected  $guarded = [];
 
 	public function subcategorias ()

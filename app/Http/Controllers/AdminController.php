@@ -110,7 +110,7 @@ class AdminController extends Controller
 	public function agregarPreguntas($actividad)
 	{
 		
-		$actividad = Actividades::find($actividad);
+		$actividad = Actividades::find($actividad)->load(['preguntas']);
 		return view('admin/agregar-preguntas')
 		->with('actividad',$actividad);
 	}
