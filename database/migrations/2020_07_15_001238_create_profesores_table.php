@@ -22,7 +22,7 @@ class CreateProfesoresTable extends Migration
             $table->integer('telefono')->nullable();
             $table->string('email')->nullable();
             $table->string('password')->nullable();
-            $table->timestamps()->nullable();
+            $table->timestamps();
         });
     }
 
