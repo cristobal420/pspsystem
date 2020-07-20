@@ -15,144 +15,145 @@ use App\Preguntas;
 
 class AdminController extends Controller
 {
-    
-    public function menuPrincipal()
-    {
-        return view('admin/menu');
-    }
+	
+	public function menuPrincipal()
+	{
+		return view('admin/menu');
+	}
 
-    public function agregarAlumno()
-    {
-        $profesores = Profesores::all();
-        
-        return view('admin/agregar_alumno')
-        ->with('profesores',$profesores);
-    }
-    public function nuevoAlumno(Request $request)
-    {
-        $validacion = $request->validate([
-            'rut' => 'required',
-            'nombres' => 'required',
-            'apellidos'=> 'required',
-            'fnac' => 'required',
-            'telefono' => 'numeric|required',
-            'email' => 'email|required',
-            'diagnostico' => 'required',
-            'profesor_id' => 'required'
-        ]);
-        
-        $pass = bcrypt('secret');
+	public function agregarAlumno()
+	{
+		$profesores = Profesores::all();
+		
+		return view('admin/agregar_alumno')
+		->with('profesores',$profesores);
+	}
+	public function nuevoAlumno(Request $request)
+	{
+		$validacion = $request->validate([
+			'rut' => 'required',
+			'nombres' => 'required',
+			'apellidos'=> 'required',
+			'fnac' => 'required',
+			'telefono' => 'numeric|required',
+			'email' => 'email|required',
+			'diagnostico' => 'required',
+			'profesor_id' => 'required'
+		]);
+		
+		$pass = bcrypt('secret');
 
-        $alumno = new Alumnos;
+		$alumno = new Alumnos;
 
-        $alumno->rut = $request->rut;
-        $alumno->nombres = $request->nombres;
-        $alumno->apellidos = $request->apellidos;
-        $alumno->fnac = $request->fnac;
-        $alumno->telefono = $request->telefono;
-        $alumno->email = $request->email;
-        $alumno->password = $pass;
-        $alumno->NEE = $request->diagnostico;
-        $alumno->profesores_id = $request->profesor_id;
+		$alumno->rut = $request->rut;
+		$alumno->nombres = $request->nombres;
+		$alumno->apellidos = $request->apellidos;
+		$alumno->fnac = $request->fnac;
+		$alumno->telefono = $request->telefono;
+		$alumno->email = $request->email;
+		$alumno->password = $pass;
+		$alumno->NEE = $request->diagnostico;
+		$alumno->profesores_id = $request->profesor_id;
 
-        $alumno->save();
+		$alumno->save();
 
-        return back();
+		return back();
 
-    }
+	}
 
-    public function verAlumnos(){
-        $alumnos = Alumnos::all();
-        return view('admin/ver_alumnos')
-        ->with('alumnos',$alumnos);
-    }
+	public function verAlumnos(){
+		$alumnos = Alumnos::all();
+		return view('admin/ver_alumnos')
+		->with('alumnos',$alumnos);
+	}
 
-    public function eliminarAlumno($id){
-        $alumno = Alumnos::find($id);
-        $alumno->delete();
-        return back();
-    }
+	public function eliminarAlumno($id){
+		$alumno = Alumnos::find($id);
+		$alumno->delete();
+		return back();
+	}
 
 
-    public function agregarActividad()
-    {
-        $categorias = Categorias::all();
-        $niveles = Niveles::all();
-        return view('admin/agregar_actividad')
-        ->with('categorias',$categorias)
-        ->with('niveles',$niveles);
-    }
+	public function agregarActividad()
+	{
+		$categorias = Categorias::all();
+		$niveles = Niveles::all();
+		return view('admin/agregar_actividad')
+		->with('categorias',$categorias)
+		->with('niveles',$niveles);
+	}
 
-    public function apiSubcategorias($id)
-    {
-        return $subcategorias = Subcategorias::where('categorias_id',$id)->get();
-    }
+	public function apiSubcategorias($id)
+	{
+		return $subcategorias = Subcategorias::where('categorias_id',$id)->get();
+	}
 
-    public function nuevaActividad(Request $request)
-    {
-        $validacion = $request->validate([
-            'nombre' => 'required',
-            'categorias' => 'required',
-            'subcategorias'=> 'required',
-            'niveles' => 'required',
-        ]);
+	public function nuevaActividad(Request $request)
+	{
+		$validacion = $request->validate([
+			'nombre' => 'required',
+			'categorias' => 'required',
+			'subcategorias'=> 'required',
+			'niveles' => 'required',
+		]);
 
-        $actividad = new Actividades;
-        $actividad->nombre = $request->nombre;
-        $actividad->subcategorias_id = $request->subcategorias;
-        $actividad->niveles_id = $request->niveles;
-        $actividad->save();
-        return redirect()->route('agregarPreguntas',$actividad->id);
+		$actividad = new Actividades;
+		$actividad->nombre = $request->nombre;
+		$actividad->subcategorias_id = $request->subcategorias;
+		$actividad->niveles_id = $request->niveles;
+		$actividad->save();
+		return redirect()->route('agregarPreguntas',$actividad->id);
 
-    }
+	}
 
-    public function agregarPreguntas($actividad)
-    {
-        
-        $actividad = Actividades::find($actividad);
-        return view('admin/agregar-preguntas')
-        ->with('actividad',$actividad);
-    }
+	public function agregarPreguntas($actividad)
+	{
+		
+		$actividad = Actividades::find($actividad);
+		return view('admin/agregar-preguntas')
+		->with('actividad',$actividad);
+	}
 
-    public function nuevaPregunta(Request $request, $actividad)
-    {
+	public function nuevaPregunta(Request $request, $actividad)
+	{
+		dd($request);
 
-        $pregunta = new Preguntas;
-        $pregunta->pregunta = $request->pregunta;
-        $pregunta['alternativa-a'] = $request['alternativa-a'];
-        $pregunta['alternativa-b'] = $request['alternativa-b'];
-        $pregunta['alternativa-c'] = $request['alternativa-c'];
-        $pregunta['alternativa-d'] = $request['alternativa-d'];
-        if($request['check-a'] == 'A'){
+		$pregunta = new Preguntas;
+		$pregunta->pregunta = $request->pregunta;
+		$pregunta['alternativa-a'] = $request['alternativa-a'];
+		$pregunta['alternativa-b'] = $request['alternativa-b'];
+		$pregunta['alternativa-c'] = $request['alternativa-c'];
+		$pregunta['alternativa-d'] = $request['alternativa-d'];
+		if($request['check-a'] == 'A'){
 
-            $resA = $request['check-a'];
-            $pregunta->respuesta = $resA;
-            $pregunta->actividades_id = $request->actividad;
-            $pregunta->save();
+			$resA = $request['check-a'];
+			$pregunta->respuesta = $resA;
+			$pregunta->actividades_id = $request->actividad;
+			$pregunta->save();
 
-        }if($request['check-b'] == 'B'){
+		}if($request['check-b'] == 'B'){
 
-            $resB = $request['check-b'];
-            $pregunta->respuesta = $resB;
-            $pregunta->actividades_id = $request->actividad;
-            $pregunta->save();
+			$resB = $request['check-b'];
+			$pregunta->respuesta = $resB;
+			$pregunta->actividades_id = $request->actividad;
+			$pregunta->save();
 
-        }if($request['check-c'] == 'C'){
+		}if($request['check-c'] == 'C'){
 
-            $resC = $request['check-c'];
-            $pregunta->respuesta = $resC;
-            $pregunta->actividades_id = $request->actividad;
-            $pregunta->save();
+			$resC = $request['check-c'];
+			$pregunta->respuesta = $resC;
+			$pregunta->actividades_id = $request->actividad;
+			$pregunta->save();
 
-        }if($request['check-d'] == 'D'){
+		}if($request['check-d'] == 'D'){
 
-            $resD = $request['check-d'];
-            $pregunta->respuesta = $resD;
-            $pregunta->actividades_id = $request->actividad;
-            $pregunta->save();
-        }
-      
-        return 'se agrego';
-    }
+			$resD = $request['check-d'];
+			$pregunta->respuesta = $resD;
+			$pregunta->actividades_id = $request->actividad;
+			$pregunta->save();
+		}
+	  
+		return 'se agrego';
+	}
 
 }
