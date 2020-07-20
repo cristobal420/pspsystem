@@ -15,14 +15,14 @@ class CreateProfesoresTable extends Migration
     {
         Schema::create('profesores', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('rut')->unique();
-            $table->string('nombres');
-            $table->string('apellidos');
-            $table->date('fnac');
-            $table->integer('telefono');
-            $table->string('email');
-            $table->string('password');
-            $table->timestamps();
+            $table->string('rut')->unique()->nullable();
+            $table->string('nombres')->nullable();
+            $table->string('apellidos')->nullable();
+            $table->date('fnac')->nullable();
+            $table->integer('telefono')->nullable();
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
+            $table->timestamps()->nullable();
         });
     }
 

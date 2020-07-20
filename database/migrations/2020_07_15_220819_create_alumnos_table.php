@@ -15,15 +15,15 @@ class CreateAlumnosTable extends Migration
     {
         Schema::create('alumnos', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('rut')->unique();
-            $table->string('nombres');
-            $table->string('apellidos');
-            $table->date('fnac');
-            $table->integer('telefono');
-            $table->string('email');
-            $table->string('password');
-            $table->string('NEE');
-            $table->unsignedBigInteger('profesores_id');
+            $table->string('rut')->unique()->nullable();
+            $table->string('nombres')->nullable();
+            $table->string('apellidos')->nullable();
+            $table->date('fnac')->nullable();
+            $table->integer('telefono')->nullable();
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
+            $table->string('NEE')->nullable();
+            $table->unsignedBigInteger('profesores_id')->nullable();
             $table->foreign('profesores_id')->references('id')->on('profesores');
             $table->timestamps();
         });
