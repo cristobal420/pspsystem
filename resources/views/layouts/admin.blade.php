@@ -89,7 +89,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link ">
+                <a href=" {{ route('verActividades') }}" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Visualizar actividades</p>
                 </a>

@@ -74,7 +74,6 @@
     <div class="card card-body">
         @foreach ($actividad->preguntas as $pregunta)
             <h2>{{ $pregunta->pregunta }}</h2>
-            <img src="{{ asset('../imagenes/'.$pregunta->imagen) }}" style="height:300px">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#moda-{{ $pregunta->id }}">
                 Respuestas
             </button>
@@ -88,8 +87,8 @@
                         </div>
                         <div class="modal-body">
                             @foreach ($pregunta->respuestas as $res)
-                            <h5>Respuesta : {{ $res->respuesta }}</h5>
-                            <h5>Correcta  : {{ $res->correcta }}</h5>
+                            <h5>Alternativa : {{ $res->respuesta }}</h5>
+                            <h5>Respuesta Correcta  : {{ $res->correcta}}</h5>
                             <br>
                             @endforeach
                         </div>

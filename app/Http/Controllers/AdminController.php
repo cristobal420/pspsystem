@@ -112,7 +112,7 @@ class AdminController extends Controller
 	{
 		
 		$actividad = Actividades::find($actividad)->load(['preguntas','preguntas.respuestas']);	
-		return view('admin/agregar-preguntas')
+		return view('admin/agregar_preguntas')
 		->with('actividad',$actividad);
 	}
 
@@ -159,6 +159,14 @@ class AdminController extends Controller
 
 		return back();
 	}
+	
+	public function verActividades()
+	{
+		
+		$actividades = Actividades::all();
+		return view('admin/ver_actividades')
+		->with('actividades',$actividades);
 
+	}
 
 }

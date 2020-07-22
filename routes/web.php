@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::post('/nueva-actividad','AdminController@nuevaActividad')->name('nuevaActividad');
 	Route::get('/agregar-preguntas/{actividad}','AdminController@agregarPreguntas')->name('agregarPreguntas');
 	Route::post('/nueva-pregunta/{actividad}','AdminController@nuevaPregunta')->name('nuevaPregunta');
+	Route::get('/ver-actividades', 'AdminController@verActividades')->name('verActividades');
 	
 
 });
