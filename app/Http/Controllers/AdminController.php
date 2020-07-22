@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Validation\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Profesores;
 use App\Alumnos;
 use App\Categorias;
@@ -110,7 +111,7 @@ class AdminController extends Controller
 	public function agregarPreguntas($actividad)
 	{
 		
-		$actividad = Actividades::find($actividad)->load(['preguntas']);
+		$actividad = Actividades::find($actividad)->load('preguntas');	
 		return view('admin/agregar-preguntas')
 		->with('actividad',$actividad);
 	}
@@ -123,7 +124,7 @@ class AdminController extends Controller
 		$pregunta->pregunta = $request->pregunta;
 		$pregunta->actividades_id = $request->actividad;
 		$pregunta->save();
-
+		
 		$respuestas= new Respuestas;
 		$respuestas->preguntas_id = $pregunta->id;
 		$respuestas->respuesta = $request->correcta;
@@ -148,7 +149,13 @@ class AdminController extends Controller
 		$respuestas->correcta = 'no';
 		$respuestas->save();
 
-		return 'se agrego';
+		return back();
+	}
+
+	public function verRespuestas($id){
+
+		$respuestas = Respuestas::all()->where('preguntas_id',$id);
+		return $respuestas;
 	}
 
 }

@@ -4,7 +4,6 @@
 @section('contenido')
 
 @foreach ($actividad as $actividades)
-    
 @endforeach
 
 
@@ -55,15 +54,26 @@
             <button type="submit" class="btn btn-primary boton" name="">Agregar pregunta</button>
         </div>
     </form>
-        
     </div>
 </div>
+
+<div class="card card-primary col-6">
+    <div class="card-header">
+        <h3 class="card-title">Previsualización"{{ $actividad->nombre }}"</h3>
+    </div>
+
+    <div class="card card-body">
+    @foreach ($actividad->preguntas as $pregunta)
+        <h3>{{ $pregunta->pregunta }} <a href="{{ route('verRespuestas',$pregunta->id) }}">Ver Respuetas</a></h3>
+        
+    @endforeach
+    </div>
+</div>
+
 
 
 @endsection
 
 @section('scripts')
-    
-
 
 @endsection
