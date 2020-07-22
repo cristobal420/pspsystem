@@ -118,10 +118,18 @@ class AdminController extends Controller
 
 	public function nuevaPregunta(Request $request, $actividad)
 	{
-		// dd($request);
+		
+		if($request->hasfile('imagen')){
+			$file = $request->file('imagen');
+			$nombre = time().$file->getClientOriginalName();
+			$file->move(public_path().'/imagenes',$nombre);
+		}else{
+			$nombre ='';
+		}
 
 		$pregunta = new Preguntas;
 		$pregunta->pregunta = $request->pregunta;
+		$pregunta->imagen= $nombre;
 		$pregunta->actividades_id = $request->actividad;
 		$pregunta->save();
 		
@@ -152,12 +160,5 @@ class AdminController extends Controller
 		return back();
 	}
 
-	public function verRespuestas($id){
-
-		$respuestas = Respuestas::all()->where('preguntas_id',$id);
-		foreach ($respuestas as $res) {
-			dd( $respuestas);
-		}
-	}
 
 }

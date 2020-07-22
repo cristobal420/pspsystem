@@ -16,6 +16,7 @@ class CreatePreguntasTable extends Migration
 		Schema::create('preguntas', function (Blueprint $table) {
 			$table->id();
 			$table->string('pregunta')->nullable();
+			$table->string('imagen')->nullable();
 			$table->foreignId('actividades_id')->constrained('actividades')->nullable();
 			$table->timestamps();
 		});
