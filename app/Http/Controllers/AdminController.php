@@ -111,7 +111,7 @@ class AdminController extends Controller
 	public function agregarPreguntas($actividad)
 	{
 		
-		$actividad = Actividades::find($actividad)->load('preguntas');	
+		$actividad = Actividades::find($actividad)->load(['preguntas','preguntas.respuestas']);	
 		return view('admin/agregar-preguntas')
 		->with('actividad',$actividad);
 	}
@@ -155,7 +155,9 @@ class AdminController extends Controller
 	public function verRespuestas($id){
 
 		$respuestas = Respuestas::all()->where('preguntas_id',$id);
-		return $respuestas;
+		foreach ($respuestas as $res) {
+			dd( $respuestas);
+		}
 	}
 
 }

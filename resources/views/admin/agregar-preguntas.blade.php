@@ -64,7 +64,12 @@
 
     <div class="card card-body">
     @foreach ($actividad->preguntas as $pregunta)
-        <h3>{{ $pregunta->pregunta }} <a href="{{ route('verRespuestas',$pregunta->id) }}">Ver Respuetas</a></h3>
+        <h3>{{ $pregunta->pregunta }}
+        
+        @foreach ($pregunta->respuestas as $res)
+        @dump($res->respuesta,$res->correcta)
+        @endforeach
+        </h3>
         
     @endforeach
     </div>
