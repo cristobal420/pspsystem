@@ -13,8 +13,8 @@ class ProfesorSeeder extends Seeder
     {
         DB::table('profesores')->insert([
             'rut' => '1.111.111-1',
-            'nombres' => 'Nombre Nombre',
-            'apellidos' => 'Apellido Apellido',
+            'nombres' => 'Julio',
+            'apellidos' => 'Profe',
             'fnac' => '2020-01-01',
             'telefono' => '123123123',
             'email' => 'prueba@prueba.com',

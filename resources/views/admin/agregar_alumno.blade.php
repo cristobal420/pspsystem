@@ -1,25 +1,37 @@
 
-@extends('layouts.admin')
+@extends('layouts.profesor')
 
 @section('titulo','Agregar Alumno')
+@section('direccion', 'Agregar nueva alumno')
 
 @section('contenido')
-<div class="card card-primary col-12">
+<div class="card card-purple col-12 ">
 
 <div class="card-header">
   <h3 class="card-title">Agregar alumno nuevo</h3>
 </div>
-       
+
+@if(session()->has('flash'))
+<br>
+<div class="container">
+  <div class="alert alert-success">
+  {{ session('flash') }}
+  </div>
+</div>
+@endif
+
 <form action="{{ route('nuevoAlumno') }}" method="POST">
   {{ csrf_field() }}
     <div class="card-body">
       <div class="form-group">
         <label for="rut">RUT</label>
-        <input type="text" class="form-control" name="rut" placeholder="Ingrese el RUT del alumno">
+        <input type="text" class="form-control {{ $errors->has('rut') ? 'is-invalid' : ''}}"
+        name="rut" placeholder="Ingrese el RUT del alumno">
       </div>
       <div class="form-group">
         <label for="nombres">Nombres</label>
-        <input type="text" class="form-control" name="nombres" placeholder="Ingrese el nombre del alumno">
+        <input type="text" class="form-control {{ $errors->has('nombres') ? 'is-invalid' : ''}}" 
+        name="nombres" placeholder="Ingrese el nombre del alumno">
       </div>
       <div class="form-group">
         <label for="apellidos">Apellidos</label>
@@ -27,7 +39,8 @@
       </div>
       <div class="form-group">
         <label for="fnac">Fecha nacimiento</label>
-        <input type="date" class="form-control" name="fnac" >
+        <input type="date" class="form-control {{ $errors->has('fnac') ? 'is-invalid' : ''}}"
+         name="fnac" >
       </div>
       <div class="form-group">
         <label for="telenfono">Telefono</label>
@@ -35,7 +48,8 @@
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" name="email"  placeholder="Ingrese email del alumno">
+        <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" 
+        name="email"  placeholder="Ingrese email del alumno">
       </div>
       <div class="form-group">
         <label>Diagnostico a Necesidades Educativas Especiales</label>
@@ -55,21 +69,9 @@
       </div>
     </div>
                 
-    <div class="card-footer">
-      <button type="submit" class="btn btn-primary">Agregar</button>
+    <div class="card card-footer">
+      <button type="submit" class="btn btn-success">Agregar Alumno</button>
     </div>
-
-
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
 </form>
 </div>
 @endsection

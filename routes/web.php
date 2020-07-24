@@ -15,23 +15,24 @@ use Illuminate\Support\Facades\Route;
 
 /* ########## RUTAS DEFINITIVAS ########## */
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'profesor'], function() {
 
 	Route::get('/', 'LogInController@Acceso')->name('acceso');
 	Route::post('/login', 'LogInController@LogIn')->name('login');
 
-	Route::get('/menu','AdminController@menuPrincipal')->name('menu');
+	Route::get('/menu','ProfesorController@menuPrincipal')->name('menu');
 
-	Route::get('/agregar-alumno','AdminController@agregarAlumno')->name('agregarAlumno');
-	Route::post('/nuevo-alumno','AdminController@nuevoAlumno')->name('nuevoAlumno');
-	Route::get('/alumnos', 'AdminController@verAlumnos')->name('verAlumnos');
-	Route::delete('/eliminar-alumno/{id}', 'AdminController@eliminarAlumno')->name('eliminarAlumno');
+	Route::get('/agregar-alumno','ProfesorController@agregarAlumno')->name('agregarAlumno');
+	Route::post('/nuevo-alumno','ProfesorController@nuevoAlumno')->name('nuevoAlumno');
+	Route::get('/alumnos', 'ProfesorController@verAlumnos')->name('verAlumnos');
+	Route::delete('/eliminar-alumno/{id}', 'ProfesorController@eliminarAlumno')->name('eliminarAlumno');
+	Route::post('/editar-alumno/{id}','ProfesorController@editarAlumno')->name('editarAlumno');
 
-	Route::get('/agregar-actividad','AdminController@agregarActividad')->name('agregarActividad');
-	Route::post('/nueva-actividad','AdminController@nuevaActividad')->name('nuevaActividad');
-	Route::get('/agregar-preguntas/{actividad}','AdminController@agregarPreguntas')->name('agregarPreguntas');
-	Route::post('/nueva-pregunta/{actividad}','AdminController@nuevaPregunta')->name('nuevaPregunta');
-	Route::get('/ver-actividades', 'AdminController@verActividades')->name('verActividades');
+	Route::get('/agregar-actividad','ProfesorController@agregarActividad')->name('agregarActividad');
+	Route::post('/nueva-actividad','ProfesorController@nuevaActividad')->name('nuevaActividad');
+	Route::get('/agregar-preguntas/{actividad}','ProfesorController@agregarPreguntas')->name('agregarPreguntas');
+	Route::post('/nueva-pregunta/{actividad}','ProfesorController@nuevaPregunta')->name('nuevaPregunta');
+	Route::get('/ver-actividades', 'ProfesorController@verActividades')->name('verActividades');
 	
 
 });

@@ -1,17 +1,17 @@
-
-@extends('layouts.admin')
+@extends('layouts.profesor')
 
 @section('titulo','Ver Actividades')
+@section('direccion', 'Ver Actividades')
 
 @section('contenido')
-<div class="card  card-primary col-12">
+<div class="card  card-purple col-12">
 
   <div class="card-header">
     <h3 class="card-title">Listado de actividades</h3>
   </div>
 
   <div class="card-body">
-    <table id="example1" class="table table-bordered table-striped">
+    <table id="tabla-actividades" class="table table-bordered table-striped">
       <thead>
       <tr>
         <th>Nº</th>

@@ -26,9 +26,9 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-purple elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ route('menu') }}" class="brand-link">
       <img src="{{ asset('AdminLte/img/AdminLTELogo.png') }}" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">PSP SYSTEM</span>
     </a>
@@ -41,7 +41,7 @@
           <img src="{{ asset('AdminLte/img/user5-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::guard('profesores')->user()->nombres }}</a>
+          <a href="{{ route('menu') }}" class="d-block">{{ Auth::guard('profesores')->user()->nombres }} {{ Auth::guard('profesores')->user()->apellidos }}</a>
         </div>
       </div>
 
@@ -51,7 +51,7 @@
           <!-- ESTO ES EL SIDEBARD DEL LADO IZQUIERO DE LA PANTALLA !! -->
           <li class="nav-item has-treeview menu-close">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 Gestion de alumnos
                 <i class="fas fa-angle-left right"></i>
@@ -115,8 +115,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active">Ver Actividades</li>
+              <li class="breadcrumb-item"><a href="{{ route('menu') }}">Inicio</a></li>
+              <li class="breadcrumb-item active">@yield('direccion')</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

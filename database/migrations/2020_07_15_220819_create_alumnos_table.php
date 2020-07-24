@@ -19,7 +19,7 @@ class CreateAlumnosTable extends Migration
             $table->string('nombres')->nullable();
             $table->string('apellidos')->nullable();
             $table->date('fnac')->nullable();
-            $table->integer('telefono')->nullable();
+            $table->string('telefono')->nullable();
             $table->string('email')->nullable();
             $table->string('password')->nullable();
             $table->string('NEE')->nullable();

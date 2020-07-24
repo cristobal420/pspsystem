@@ -1,13 +1,14 @@
 
   
-@extends('layouts.admin')
-@section('titulo','Agregar Actividad')
+@extends('layouts.profesor')
+@section('titulo','Crear Actividad')
+@section('direccion', 'Crear nueva actividad')
 
 
 @section('contenido')
     
 
-<div class="card card-primary col-12">
+<div class="card card-purple col-12">
 
       <div class="card-header">
         <h3 class="card-title">Crear nueva actividad</h3>
@@ -47,8 +48,8 @@
           </div>
         </div>
                 <!-- /.card-body -->
-        <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Siguiente paso</button>
+        <div class="card card-footer">
+          <button type="submit" class="btn btn-success">Siguiente paso</button>
         </div>
 
       </form>

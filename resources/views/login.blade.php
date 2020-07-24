@@ -14,10 +14,10 @@
 	<!-- Theme style -->
 	<link rel="stylesheet" href="AdminLte/css/adminlte.min.css">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page bg-purple">
 <div class="login-box">
-  <div class="login-logo">
-	<a href="AdminLte/index2.html"><b>PSP</b>SYSTEM</a>
+  <div class="login-logo bg-olive">
+	<a href=""><b>PSP</b>SYSTEM</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -66,7 +66,7 @@
 		  </div>
 		  <!-- /.col -->
 		  <div class="col-4">
-			<button type="submit" class="btn btn-primary btn-block">Entrar</button>
+			<button type="submit" class="btn btn-success btn-block">Entrar</button>
 		  </div>
 		  <!-- /.col -->
 		</div>

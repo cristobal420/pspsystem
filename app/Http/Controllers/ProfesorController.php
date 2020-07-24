@@ -15,7 +15,7 @@ use App\Actividades;
 use App\Preguntas;
 use App\Respuestas;
 
-class AdminController extends Controller
+class ProfesorController extends Controller
 {
 	
 	public function menuPrincipal()
@@ -59,7 +59,8 @@ class AdminController extends Controller
 
 		$alumno->save();
 
-		return back();
+		return back()
+		->with('flash','El alumno a sido agregado exitosamente');
 
 	}
 
@@ -72,7 +73,25 @@ class AdminController extends Controller
 	public function eliminarAlumno($id){
 		$alumno = Alumnos::find($id);
 		$alumno->delete();
-		return back();
+		return back()
+		->with('flash-deleted','El alumno a sido eliminado');;
+	}
+	public function editarAlumno(Request $request,$id){
+
+		$alumno = Alumnos::find($id);
+
+		$alumno->rut = $request->rut;
+		$alumno->nombres = $request->nombres;
+		$alumno->apellidos = $request->apellidos;
+		$alumno->fnac = $request->fnac;
+		$alumno->telefono = $request->telefono;
+		$alumno->email = $request->email;
+		$alumno->NEE = $request->diagnostico;
+		$alumno->profesores_id = $request->profesor_id;
+		$alumno->save();
+
+		return back()
+		->with('flash-edit','El alumno a sido editado exitosamente');
 	}
 
 

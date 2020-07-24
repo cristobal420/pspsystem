@@ -1,5 +1,6 @@
-@extends('layouts.admin')
+@extends('layouts.profesor')
 @section('titulo','Agregar Preguntas')
+@section('direccion', 'Agregar preguntas a actividad')
 
 @section('contenido')
 
@@ -8,7 +9,7 @@
 
 
 
-<div class="card card-primary col-6">
+<div class="card card-purple col-6">
     <div class="card-header">
         <h3 class="card-title">Agregar preguntas a la actividad "{{ $actividad->nombre }}"</h3>
     </div>
@@ -58,14 +59,14 @@
             <label class="col-form-label" for="inputError"><i class="far fa-times-circle"></i>Respuesta Incorrecta</label>
             <input type="text" class="form-control is-invalid" id="inputError" name="incorrecta3">
         </div>
-        <div class="card-footer">
-            <button type="submit" class="btn btn-primary boton" name="">Agregar pregunta</button>
+        <div class="card card-footer">
+            <button type="submit" class="btn btn-success boton" name="">Agregar pregunta</button>
         </div>
     </form>
     </div>
 </div>
 
-<div class="card card-primary col-6">
+<div class="card card-purple col-6">
 
     <div class="card-header">
         <h3 class="card-title">Previsualización"{{ $actividad->nombre }}"</h3>
@@ -74,23 +75,31 @@
     <div class="card card-body">
         @foreach ($actividad->preguntas as $pregunta)
             <h2>{{ $pregunta->pregunta }}</h2>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#moda-{{ $pregunta->id }}">
+            <button type="button" class="btn btn-block btn-outline-secondary" data-toggle="modal" data-target="#moda-{{ $pregunta->id }}">
                 Respuestas
             </button>
                 <div class="modal fade" id="moda-{{ $pregunta->id }}">
                     <div class="modal-dialog">
-                      <div class="modal-content bg-primary">
+                      <div class="modal-content bg-purple">
                         <div class="modal-header">
                           <h4 class="modal-title">{{ $pregunta->pregunta }}</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body">
+                            
                             @foreach ($pregunta->respuestas as $res)
-                            <h5>Alternativa : {{ $res->respuesta }}</h5>
-                            <h5>Respuesta Correcta  : {{ $res->correcta}}</h5>
-                            <br>
+                            <div class="row">
+                                <p>ALTERNATIVA: {{ $res->respuesta }}  ||
+                                    @if ($res->correcta == 'si')
+                                        <i class="fa fa-check bg-success" aria-hidden="true"></i>
+                                    @else
+                                        <i class="fa fa-times bg-danger" aria-hidden="true"></i>
+                                    @endif  
+                                </p>
+                            </div>
                             @endforeach
+                            
                         </div>
                       </div>
                     </div>
@@ -98,8 +107,8 @@
 
         @endforeach
     </div>
-    <div class="card-footer">
-        <a href="{{ route('menu') }}" class="btn btn-primary">Finalizar actividad</a>
+    <div class="card card-footer">
+        <a href="{{ route('menu') }}" class="btn btn-success">Finalizar actividad</a>
     </div>
     
 </div>
