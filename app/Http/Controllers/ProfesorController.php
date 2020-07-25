@@ -131,6 +131,17 @@ class ProfesorController extends Controller
 		return redirect()->route('agregarPreguntas',$actividad->id);
 
 	}
+	public function eliminarAct ($id)
+	{
+		$actividad = Actividades::find($id);
+		$pregs = Preguntas::where('actividades_id', $id)->get();
+		foreach ($pregs as $key => $value) {
+			$respuesta = Respuestas::where('preguntas_id', $value->id)->delete();
+			$value->delete();
+		}
+		$actividad->delete();
+		return redirect()->back()->with('flash-warning','La actividad a sido eliminada del sistema');
+	}
 
 	public function agregarPreguntas($actividad)
 	{
