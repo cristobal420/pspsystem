@@ -21,7 +21,7 @@ class LogInController extends Controller
 
 		// return $datos;
 		if(Auth::guard('profesores')->attempt($datos)){
-			return view('admin.menu');
+			return redirect()->route('menu');
 		}else{
 			return back()
 			->withErrors([

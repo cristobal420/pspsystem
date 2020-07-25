@@ -27,12 +27,18 @@
             <td>{{ $act->nombre }}</td>
             <td>{{ $act->subcategorias->nombre }}, {{ $act->subcategorias->categorias->nombre }}</td>
             <td>{{ $act->niveles->nivel }}</td>
+            <td>
+              <button type="submit" class="btn btn-block btn-outline-warning" data-toggle="modal" data-target="#modal-{{ $act->id }}">
+                <i class="fas fa-eye"></i>
+              </button>
+            </td> 
         </tr>  
        @endforeach
       </tbody>
     </table>
   </div>
 </div>
+
 @endsection
 
        

@@ -20,7 +20,12 @@ class ProfesorController extends Controller
 	
 	public function menuPrincipal()
 	{
-		return view('admin/menu');
+		$alumnos = Alumnos::all()->count();
+		$act = Actividades::all()->count();
+		// dd($alumnos);
+		return view('admin/menu')
+		->with('act',$act)
+		->with('alumnos',$alumnos);
 	}
 
 	public function agregarAlumno()

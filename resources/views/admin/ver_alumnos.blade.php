@@ -75,7 +75,7 @@
 </div>
 
 
-
+@foreach ($alumnos as $alumno)
 <div class="modal fade" id="moda-{{ $alumno->id }}">
   <div class="modal-dialog">
     <div class="modal-content bg-purple">
@@ -136,7 +136,7 @@
     </div>
   </div>
 </div>
-
+@endforeach
 
 
 @endsection
