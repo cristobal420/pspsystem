@@ -18,6 +18,7 @@ class CreateRespuestasTable extends Migration
 			$table->foreignId('preguntas_id')->constrained('preguntas')->nullable();
 			$table->string('respuesta')->nullable();
 			$table->string('correcta',2)->nullable();
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

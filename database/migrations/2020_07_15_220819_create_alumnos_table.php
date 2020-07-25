@@ -25,6 +25,7 @@ class CreateAlumnosTable extends Migration
             $table->string('NEE')->nullable();
             $table->unsignedBigInteger('profesores_id')->nullable();
             $table->foreign('profesores_id')->references('id')->on('profesores');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
