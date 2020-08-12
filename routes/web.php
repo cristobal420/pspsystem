@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 /* ########## RUTAS DEFINITIVAS ########## */
 
+Route::get('/', 'HomeController@index')->name('/');
+
 Route::group(['prefix' => 'profesor'], function() {
 
 	Route::get('/', 'LogInController@Acceso')->name('acceso');
