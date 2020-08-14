@@ -34,7 +34,9 @@
 		{{-- LADO IZQUIERDO --}}
 		<div class="col-md-6 no-gutters">
 
-			<div class="izquierda"></div>
+			<div class="izquierda d-flex justify-content-center align-items-center">
+				Click AQUI
+			</div>
 
 		</div>
 
@@ -43,7 +45,9 @@
 		{{-- LADO DERECHO --}}
 		<div class="col-md-6 no-gutters">
 
-			<div class="derecha"></div>
+			<div class="derecha  d-flex justify-content-center align-items-center">
+				Click AQUI
+			</div>
 
 		</div>
 	</div>
