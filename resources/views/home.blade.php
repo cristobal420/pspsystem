@@ -20,10 +20,18 @@
 			}
 		}
 		.izquierda {
-			background: red;
+			background: green;
 		}
 		.derecha {
-			background: blue;
+			background: purple;
+		}
+		.cont{
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 	</style>
 </head>
@@ -35,7 +43,17 @@
 		<div class="col-md-6 no-gutters">
 
 			<div class="izquierda d-flex justify-content-center align-items-center">
-				Click AQUI
+				<div class="container cont">
+					<div class="row">
+						<div class="col-md-5 mx-auto mb-5">
+							<div class="card h-100 py-5 bg-primary">
+								<div class="card-body">
+									<!-- Acá contenido -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 		</div>
@@ -46,7 +64,17 @@
 		<div class="col-md-6 no-gutters">
 
 			<div class="derecha  d-flex justify-content-center align-items-center">
-				Click AQUI
+				<div class="container cont">
+					<div class="row">
+						<div class="col-md-5 mx-auto mb-5">
+							<div class="card h-100 py-5 bg-primary">
+								<div class="card-body">
+									<!-- Acá contenido -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 		</div>
