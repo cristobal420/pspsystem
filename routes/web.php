@@ -39,5 +39,9 @@ Route::group(['prefix' => 'profesor'], function() {
 	
 
 });
+
+Route::group(['prefix' => 'alumno'], function() {
+	/* RUTAS PARA EL ALUMNO */
+});
 /* ########## RUTAS DEFINITIVAS ########## */
 
