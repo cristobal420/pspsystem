@@ -9,7 +9,7 @@ class LogInController extends Controller
 {
 	public function Acceso()
 	{
-		return view('login');
+		return view('profesores.login');
 	}
 
 	public function LogIn (Request $request)
@@ -31,5 +31,26 @@ class LogInController extends Controller
 			->withInput(request(['email']));
 		}
 
+	}
+	/* ########## LOGIN ALUMNOS ########## */
+	public function accesoAlumnos()
+	{
+		return view('alumnos.login');
+	}
+	
+	public function loginAlumnos (Request $request)
+	{
+		$datos = $request->validate([
+			'email' => 'email|required|string',
+			'password' => 'required|string',
+		]);
+		if(Auth::guard('alumno')->attempt($datos)){
+			return redirect()->route('menu');
+		}else{
+			return back()->withErrors([
+				'email'=>'Vuelve a ingresar tu email',
+				'password'=>'Vuelve a ingresar tu contraseña',
+			])->withInput(request(['email']));
+		}
 	}
 }
