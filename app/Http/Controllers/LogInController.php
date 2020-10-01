@@ -32,6 +32,10 @@ class LogInController extends Controller
 		}
 
 	}
+	public function logoutP ()
+	{
+		Auth::guard('profesores')->logout();
+	}
 	/* ########## LOGIN ALUMNOS ########## */
 	public function accesoAlumnos()
 	{

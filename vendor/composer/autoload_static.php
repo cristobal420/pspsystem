@@ -33,6 +33,7 @@ class ComposerStaticInit7b4192f45dc498215b14b0dc652e4350
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
+        'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -461,6 +462,13 @@ class ComposerStaticInit7b4192f45dc498215b14b0dc652e4350
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
         ),
+        'L' => 
+        array (
+            'Laracasts\\Flash' => 
+            array (
+                0 => __DIR__ . '/..' . '/laracasts/flash/src',
+            ),
+        ),
         'H' => 
         array (
             'Highlight\\' => 
@@ -480,9 +488,11 @@ class ComposerStaticInit7b4192f45dc498215b14b0dc652e4350
         'App\\Categorias' => __DIR__ . '/../..' . '/app/Categorias.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\AlumnosController' => __DIR__ . '/../..' . '/app/Http/Controllers/AlumnosController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LogInController' => __DIR__ . '/../..' . '/app/Http/Controllers/LogInController.php',
+        'App\\Http\\Controllers\\ProfesorController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfesorController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -2356,6 +2366,13 @@ class ComposerStaticInit7b4192f45dc498215b14b0dc652e4350
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'Laracasts\\Flash\\Flash' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/Flash.php',
+        'Laracasts\\Flash\\FlashNotifier' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/FlashNotifier.php',
+        'Laracasts\\Flash\\FlashServiceProvider' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/FlashServiceProvider.php',
+        'Laracasts\\Flash\\LaravelSessionStore' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/LaravelSessionStore.php',
+        'Laracasts\\Flash\\Message' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/Message.php',
+        'Laracasts\\Flash\\OverlayMessage' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/OverlayMessage.php',
+        'Laracasts\\Flash\\SessionStore' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/SessionStore.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',

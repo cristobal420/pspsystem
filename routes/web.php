@@ -24,6 +24,7 @@ Route::group(['prefix' => 'profesor', 'as' => 'profesor.'], function() {
 
 	Route::group(['middleware' => ['auth:profesores']], function() {
 		/* ##### Rutas que requieren autenticación ##### */
+		Route::get('logout', 'LogInController@logoutP')->name('logout');
 	    Route::get('/menu','ProfesorController@menuPrincipal')->name('menu');
 
 		Route::get('/agregar-alumno','ProfesorController@agregarAlumno')->name('agregarAlumno');
