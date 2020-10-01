@@ -24,54 +24,46 @@
 		</ul>
 	</nav>
 	<!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-purple elevation-4">
-	<!-- Brand Logo -->
-	<a href="{{ route('menu') }}" class="brand-link">
-	  <img src="{{ asset('AdminLte/img/AdminLTELogo.png') }}" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
-	  <span class="brand-text font-weight-light">PSP SYSTEM</span>
-	</a>
-
-	<!-- Sidebar -->
-	<div class="sidebar">
-	  <!-- ESTO ES EL USUARIO CON SU FOTITO -->
-	  <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-		<div class="image">
-		  <img src="{{ asset('AdminLte/img/user5-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
-		</div>
-		<div class="info">
-		  <a href="{{ route('menu') }}" class="d-block">{{ Auth::guard('profesores')->user()->nombres }} {{ Auth::guard('profesores')->user()->apellidos }}</a>
-		</div>
-	  </div>
-
-	  <!-- Sidebar Menu -->
-	  <nav class="mt-2">
-		<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-		  <!-- ESTO ES EL SIDEBARD DEL LADO IZQUIERO DE LA PANTALLA !! -->
-		  <li class="nav-item has-treeview menu-close">
-			<a href="#" class="nav-link active">
-			  <i class="nav-icon fas fa-user"></i>
-			  <p>
-				Gestion de alumnos
-				<i class="fas fa-angle-left right"></i>
-			  </p>
-			</a>
-			<ul class="nav nav-treeview">
-			  <li class="nav-item">
-				<a href="{{ route('agregarAlumno') }}" class="nav-link ">
-				  <i class="far fa-circle nav-icon"></i>
-				  <p>Agregar alumno</p>
-				</a>
-			  </li>
-			  <li class="nav-item">
-				<a href="{{ route('verAlumnos') }}" class="nav-link ">
-				  <i class="far fa-circle nav-icon"></i>
-				  <p>Visualizar alumnos</p>
-				</a>
-			  </li>
-			</ul>
-		  </li>
+	<!-- Main Sidebar Container -->
+	<aside class="main-sidebar sidebar-dark-purple elevation-4">
+		<!-- Brand Logo -->
+		<a href="{{ route('profesor.menu') }}" class="brand-link">
+			<img src="{{ asset('AdminLte/img/AdminLTELogo.png') }}" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
+			<span class="brand-text font-weight-light">PSP SYSTEM</span>
+		</a>
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<!-- ESTO ES EL USUARIO CON SU FOTITO -->
+			<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+				<div class="image">
+					<img src="{{ asset('AdminLte/img/user5-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
+				</div>
+				<div class="info">
+					<a href="{{ route('profesor.menu') }}" class="d-block">{{ Auth::guard('profesores')->user()->nombres }} {{ Auth::guard('profesores')->user()->apellidos }}</a>
+				</div>
+			</div>
+			<!-- Sidebar Menu -->
+			<nav class="mt-2">
+				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+					<!-- ESTO ES EL SIDEBARD DEL LADO IZQUIERO DE LA PANTALLA !! -->
+					<li class="nav-item has-treeview menu-close">
+						<a href="#" class="nav-link active">
+							<i class="nav-icon fas fa-user"></i><p>Gestion de alumnos<i class="fas fa-angle-left right"></i></p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="{{ route('profesor.agregarAlumno') }}" class="nav-link ">
+									<i class="far fa-circle nav-icon"></i><p>Agregar alumno</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="{{ route('profesor.verAlumnos') }}" class="nav-link ">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Visualizar alumnos</p>
+								</a>
+							</li>
+						</ul>
+					</li>
 
 		  <li class="nav-item has-treeview menu-close">
 			<a href="#" class="nav-link active">
@@ -83,13 +75,13 @@
 			</a>
 			<ul class="nav nav-treeview">
 			  <li class="nav-item">
-				<a href="{{ route('agregarActividad') }}" class="nav-link ">
+				<a href="{{ route('profesor.agregarActividad') }}" class="nav-link ">
 				  <i class="far fa-circle nav-icon"></i>
 				  <p>Crear actividad</p>
 				</a>
 			  </li>
 			  <li class="nav-item">
-				<a href=" {{ route('verActividades') }}" class="nav-link ">
+				<a href=" {{ route('profesor.verActividades') }}" class="nav-link ">
 				  <i class="far fa-circle nav-icon"></i>
 				  <p>Visualizar actividades</p>
 				</a>
@@ -115,7 +107,7 @@
 		  </div><!-- /.col -->
 		  <div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
-			  <li class="breadcrumb-item"><a href="{{ route('menu') }}">Inicio</a></li>
+			  <li class="breadcrumb-item"><a href="{{ route('profesor.menu') }}">Inicio</a></li>
 			  <li class="breadcrumb-item active">@yield('direccion')</li>
 			</ol>
 		  </div><!-- /.col -->

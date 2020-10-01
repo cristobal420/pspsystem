@@ -23,7 +23,7 @@ class ProfesorController extends Controller
 		$alumnos = Alumnos::all()->count();
 		$act = Actividades::all()->count();
 		// dd($alumnos);
-		return view('admin/menu')
+		return view('profesores.menu')
 		->with('act',$act)
 		->with('alumnos',$alumnos);
 	}
@@ -32,7 +32,7 @@ class ProfesorController extends Controller
 	{
 		$profesores = Profesores::all();
 		
-		return view('admin/agregar_alumno')
+		return view('profesores.agregar_alumno')
 		->with('profesores',$profesores);
 	}
 	public function nuevoAlumno(Request $request)
@@ -71,7 +71,7 @@ class ProfesorController extends Controller
 
 	public function verAlumnos(){
 		$alumnos = Alumnos::all();
-		return view('admin/ver_alumnos')
+		return view('profesores.ver_alumnos')
 		->with('alumnos',$alumnos);
 	}
 
@@ -104,7 +104,7 @@ class ProfesorController extends Controller
 	{
 		$categorias = Categorias::all();
 		$niveles = Niveles::all();
-		return view('admin/agregar_actividad')
+		return view('profesores.agregar_actividad')
 		->with('categorias',$categorias)
 		->with('niveles',$niveles);
 	}
@@ -147,7 +147,7 @@ class ProfesorController extends Controller
 	{
 		
 		$actividad = Actividades::find($actividad)->load(['preguntas','preguntas.respuestas']);	
-		return view('admin/agregar_preguntas')
+		return view('profesores.agregar_preguntas')
 		->with('actividad',$actividad);
 	}
 
@@ -199,7 +199,7 @@ class ProfesorController extends Controller
 	{
 		
 		$actividades = Actividades::all();
-		return view('admin/ver_actividades')
+		return view('profesores.ver_actividades')
 		->with('actividades',$actividades);
 
 	}

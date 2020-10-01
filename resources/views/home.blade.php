@@ -49,6 +49,7 @@
 							<div class="card h-100 py-5 bg-primary">
 								<div class="card-body">
 									<!-- Acá contenido -->
+									<h5 class="card-title">Si eres profesor</h5>
 									<a href="{{ route('profesor.acceso') }}" class="btn btn-dark stretched-link">Click Aquí!</a>
 								</div>
 							</div>
@@ -71,6 +72,7 @@
 							<div class="card h-100 py-5 bg-primary">
 								<div class="card-body">
 									<!-- Acá contenido -->
+									<h5 class="card-title">Si eres alumno</h5>
 									<a href="{{ route('alumno.acceso') }}" class="btn btn-dark stretched-link">Click Aquí!</a>
 								</div>
 							</div>

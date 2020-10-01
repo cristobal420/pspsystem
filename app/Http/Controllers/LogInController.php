@@ -21,7 +21,7 @@ class LogInController extends Controller
 
 		// return $datos;
 		if(Auth::guard('profesores')->attempt($datos)){
-			return redirect()->route('menu');
+			return redirect()->route('profesor.menu');
 		}else{
 			return back()
 			->withErrors([
@@ -45,7 +45,7 @@ class LogInController extends Controller
 			'password' => 'required|string',
 		]);
 		if(Auth::guard('alumno')->attempt($datos)){
-			return redirect()->route('menu');
+			return redirect()->route('alumno.menu');
 		}else{
 			return back()->withErrors([
 				'email'=>'Vuelve a ingresar tu email',
