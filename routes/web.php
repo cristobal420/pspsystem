@@ -17,33 +17,57 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('/');
 
-Route::group(['prefix' => 'profesor','middleware' => ['auth:profesores'], 'as' => 'profesor.'], function() {
+Route::group(['prefix' => 'profesor', 'as' => 'profesor.'], function() {
 
 	Route::get('/', 'LogInController@Acceso')->name('acceso');
 	Route::post('/login', 'LogInController@LogIn')->name('login');
 
-	Route::get('/menu','ProfesorController@menuPrincipal')->name('menu');
+	Route::group(['middleware' => ['auth:profesores']], function() {
+		/* ##### Rutas que requieren autenticación ##### */
+	    Route::get('/menu','ProfesorController@menuPrincipal')->name('menu');
 
-	Route::get('/agregar-alumno','ProfesorController@agregarAlumno')->name('agregarAlumno');
-	Route::post('/nuevo-alumno','ProfesorController@nuevoAlumno')->name('nuevoAlumno');
-	Route::get('/alumnos', 'ProfesorController@verAlumnos')->name('verAlumnos');
-	Route::delete('/eliminar-alumno/{id}', 'ProfesorController@eliminarAlumno')->name('eliminarAlumno');
-	Route::post('/editar-alumno/{id}','ProfesorController@editarAlumno')->name('editarAlumno');
+		Route::get('/agregar-alumno','ProfesorController@agregarAlumno')->name('agregarAlumno');
+		Route::post('/nuevo-alumno','ProfesorController@nuevoAlumno')->name('nuevoAlumno');
+		Route::get('/alumnos', 'ProfesorController@verAlumnos')->name('verAlumnos');
+		Route::delete('/eliminar-alumno/{id}', 'ProfesorController@eliminarAlumno')->name('eliminarAlumno');
+		Route::post('/editar-alumno/{id}','ProfesorController@editarAlumno')->name('editarAlumno');
 
-	Route::get('/agregar-actividad','ProfesorController@agregarActividad')->name('agregarActividad');
-	Route::post('/nueva-actividad','ProfesorController@nuevaActividad')->name('nuevaActividad');
-	Route::get('/agregar-preguntas/{actividad}','ProfesorController@agregarPreguntas')->name('agregarPreguntas');
-	Route::post('/nueva-pregunta/{actividad}','ProfesorController@nuevaPregunta')->name('nuevaPregunta');
-	Route::get('/ver-actividades', 'ProfesorController@verActividades')->name('verActividades');
-	Route::get('actividades/{id}/eliminar', 'ProfesorController@eliminarAct')->name('eliminar.actividad');
-	
-
+		Route::get('/agregar-actividad','ProfesorController@agregarActividad')->name('agregarActividad');
+		Route::post('/nueva-actividad','ProfesorController@nuevaActividad')->name('nuevaActividad');
+		Route::get('/agregar-preguntas/{actividad}','ProfesorController@agregarPreguntas')->name('agregarPreguntas');
+		Route::post('/nueva-pregunta/{actividad}','ProfesorController@nuevaPregunta')->name('nuevaPregunta');
+		Route::get('/ver-actividades', 'ProfesorController@verActividades')->name('verActividades');
+		Route::get('actividades/{id}/eliminar', 'ProfesorController@eliminarAct')->name('eliminar.actividad');
+	});
 });
 
-Route::group(['prefix' => 'alumno','middleware' => ['auth:alumno'], 'as' => 'alumno.'], function() {
-	/* RUTAS PARA EL ALUMNO */
+Route::group(['prefix' => 'alumno', 'as' => 'alumno.'], function() {
+	/* RUTAS PARA EL ALUMNO LOGIN */
 	Route::get('/', 'LogInController@Acceso')->name('acceso');
 	Route::post('/login', 'LogInController@LogIn')->name('login');
+
+	Route::group(['middleware' => ['auth:alumno']], function() {
+	    /* ##### Rutas que requieren autenticación ##### */
+	});
 });
 /* ########## RUTAS DEFINITIVAS ########## */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
