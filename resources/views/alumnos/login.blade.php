@@ -23,8 +23,8 @@
 	<div class="card-body login-card-body">
 	  <p class="login-box-msg">Inicia sesión para comenzar</p>
 
-	  <form action="{{ route('login') }}" method="POST">
-	  {{ csrf_field() }}
+	  <form action="{{ route('alumno.login') }}" method="POST">
+	  @csrf
 
 		<div class="input-group mb-3 ">
 		  <input type="email"
@@ -73,10 +73,10 @@
 
 
 	  <p class="mb-1">
-		<a href="forgot-password.html">No recuerdas tu contraseña?</a>
+		<a href="#">No recuerdas tu contraseña?</a>
 	  </p>
 	  <p class="mb-0">
-		<a href="register.html" class="text-center">Registrar una nueva membresía</a>
+		<a href="#" class="text-center">Registrar una nueva membresía</a>
 	  </p>
 	</div>
 	<!-- /.login-card-body -->

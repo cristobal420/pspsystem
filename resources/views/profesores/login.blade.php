@@ -22,11 +22,9 @@
   <!-- /.login-logo -->
   <div class="card">
 	<div class="card-body login-card-body">
-	  <p class="login-box-msg">Inicia sesión para comenzar</p>
-
-	  <form action="{{ route('login') }}" method="POST">
-	  {{ csrf_field() }}
-
+		<p class="login-box-msg">Inicia sesión para comenzar</p>
+		<form action="{{ route('profesor.login') }}" method="POST">
+		@csrf
 		<div class="input-group mb-3 ">
 		  <input type="email"
 		   	class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}"
@@ -84,10 +82,10 @@
 	  <!-- /.social-auth-links -->
 
 	  <p class="mb-1">
-		<a href="forgot-password.html">No recuerdas tu contraseña?</a>
+		<a href="#">No recuerdas tu contraseña?</a>
 	  </p>
 	  <p class="mb-0">
-		<a href="register.html" class="text-center">Registrar una nueva membresía</a>
+		<a href="#" class="text-center">Registrar una nueva membresía</a>
 	  </p>
 	</div>
 	<!-- /.login-card-body -->

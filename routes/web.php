@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('/');
 
-Route::group(['prefix' => 'profesor'], function() {
+Route::group(['prefix' => 'profesor','middleware' => ['auth:profesores'], 'as' => 'profesor.'], function() {
 
 	Route::get('/', 'LogInController@Acceso')->name('acceso');
 	Route::post('/login', 'LogInController@LogIn')->name('login');
@@ -40,8 +40,10 @@ Route::group(['prefix' => 'profesor'], function() {
 
 });
 
-Route::group(['prefix' => 'alumno'], function() {
+Route::group(['prefix' => 'alumno','middleware' => ['auth:alumno'], 'as' => 'alumno.'], function() {
 	/* RUTAS PARA EL ALUMNO */
+	Route::get('/', 'LogInController@Acceso')->name('acceso');
+	Route::post('/login', 'LogInController@LogIn')->name('login');
 });
 /* ########## RUTAS DEFINITIVAS ########## */
 
