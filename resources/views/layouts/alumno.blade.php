@@ -24,85 +24,66 @@
 		</ul>
 	</nav>
 	<!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-purple elevation-4">
-	<!-- Brand Logo -->
-	<a href="{{ route('menu') }}" class="brand-link">
-	  <img src="{{ asset('AdminLte/img/AdminLTELogo.png') }}" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
-	  <span class="brand-text font-weight-light">PSP SYSTEM</span>
-	</a>
-
-	<!-- Sidebar -->
-	<div class="sidebar">
-	  <!-- ESTO ES EL USUARIO CON SU FOTITO -->
-	  <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-		<div class="image">
-		  <img src="{{ asset('AdminLte/img/user5-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
+	<!-- Main Sidebar Container -->
+	<aside class="main-sidebar sidebar-dark-purple elevation-4">
+		<!-- Brand Logo -->
+		<a href="{{ route('menu') }}" class="brand-link">
+			<img src="{{ asset('AdminLte/img/AdminLTELogo.png') }}" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
+			<span class="brand-text font-weight-light">PSP SYSTEM</span>
+		</a>
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<!-- ESTO ES EL USUARIO CON SU FOTITO -->
+			<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+				<div class="image">
+					<img src="{{ asset('AdminLte/img/user5-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
+				</div>
+				<div class="info">
+					<a href="{{ route('menu') }}" class="d-block">{{ Auth::guard('alumno')->user()->nombres }} {{ Auth::guard('alumno')->user()->apellidos }}</a>
+				</div>
+			</div>
+			<!-- Sidebar Menu -->
+			<nav class="mt-2">
+				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+					<!-- ESTO ES EL SIDEBAR DEL LADO IZQUIERO DE LA PANTALLA !! -->
+					<li class="nav-item has-treeview menu-close">
+						<a href="#" class="nav-link active">
+							<i class="nav-icon fas fa-user"></i><p>Gestion de alumnos<i class="fas fa-angle-left right"></i></p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="{{ route('agregarAlumno') }}" class="nav-link">
+									<i class="far fa-circle nav-icon"></i><p>Agregar alumno</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="{{ route('verAlumnos') }}" class="nav-link ">
+									<i class="far fa-circle nav-icon"></i><p>Visualizar alumnos</p>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item has-treeview menu-close">
+						<a href="#" class="nav-link active">
+							<i class="nav-icon fas fa-edit"></i><p>Actividades<i class="fas fa-angle-left right"></i></p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="{{ route('agregarActividad') }}" class="nav-link "><i class="far fa-circle nav-icon"></i><p>Crear actividad</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href=" {{ route('verActividades') }}" class="nav-link "><i class="far fa-circle nav-icon"></i><p>Visualizar actividades</p>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<!-- /.sidebar-menu -->
 		</div>
-		<div class="info">
-		  <a href="{{ route('menu') }}" class="d-block">{{ Auth::guard('alumno')->user()->nombres }} {{ Auth::guard('alumno')->user()->apellidos }}</a>
-		</div>
-	  </div>
-
-	  <!-- Sidebar Menu -->
-	  <nav class="mt-2">
-		<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-		  <!-- ESTO ES EL SIDEBARD DEL LADO IZQUIERO DE LA PANTALLA !! -->
-		  <li class="nav-item has-treeview menu-close">
-			<a href="#" class="nav-link active">
-			  <i class="nav-icon fas fa-user"></i>
-			  <p>
-				Gestion de alumnos
-				<i class="fas fa-angle-left right"></i>
-			  </p>
-			</a>
-			<ul class="nav nav-treeview">
-			  <li class="nav-item">
-				<a href="{{ route('agregarAlumno') }}" class="nav-link ">
-				  <i class="far fa-circle nav-icon"></i>
-				  <p>Agregar alumno</p>
-				</a>
-			  </li>
-			  <li class="nav-item">
-				<a href="{{ route('verAlumnos') }}" class="nav-link ">
-				  <i class="far fa-circle nav-icon"></i>
-				  <p>Visualizar alumnos</p>
-				</a>
-			  </li>
-			</ul>
-		  </li>
-
-		  <li class="nav-item has-treeview menu-close">
-			<a href="#" class="nav-link active">
-			  <i class="nav-icon fas fa-edit"></i>
-			  <p>
-				Construir actividad
-				<i class="fas fa-angle-left right"></i>
-			  </p>
-			</a>
-			<ul class="nav nav-treeview">
-			  <li class="nav-item">
-				<a href="{{ route('agregarActividad') }}" class="nav-link ">
-				  <i class="far fa-circle nav-icon"></i>
-				  <p>Crear actividad</p>
-				</a>
-			  </li>
-			  <li class="nav-item">
-				<a href=" {{ route('verActividades') }}" class="nav-link ">
-				  <i class="far fa-circle nav-icon"></i>
-				  <p>Visualizar actividades</p>
-				</a>
-			  </li>
-			</ul>
-		  </li>
-
-		</ul>
-	  </nav>
-	  <!-- /.sidebar-menu -->
-	</div>
-	<!-- /.sidebar -->
-  </aside>
+		<!-- /.sidebar -->
+	</aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -157,6 +138,9 @@
 <script src="{{ asset('AdminLte/js/adminlte.min.js')}}"></script>
 
 @yield('scripts')
+<script>
+	$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 
 </body>
 </html>
