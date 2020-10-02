@@ -56,7 +56,7 @@
 					<td>{{ $alumno->email }}</td>
 					<td>{{ $alumno->NEE }}</td>
 					<td>
-						<form method="POST" action="{{ route('eliminarAlumno',$alumno->id) }}">
+						<form method="POST" action="{{ route('profesor.eliminarAlumno',$alumno->id) }}">
 							@csrf
 							@method('DELETE')
 							<button type="submit" class="btn btn-block btn-outline-danger eliminar" name="eliminar">
@@ -87,7 +87,7 @@
 					<span aria-hidden="true">&times;</span></button>
 			</div>
 			<div class="modal-body">
-				<form action="{{ route('editarAlumno',$alumno->id) }}" method="POST">
+				<form action="{{ route('profesor.editarAlumno',$alumno->id) }}" method="POST">
 					{{ csrf_field() }}
 						<div class="card-body">
 							<div class="form-group">

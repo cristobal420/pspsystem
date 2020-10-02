@@ -30,7 +30,7 @@
 						<td>{{ $act->subcategorias->nombre }}, {{ $act->subcategorias->categorias->nombre }}</td>
 						<td>{{ $act->niveles->nivel }}</td>
 						<td>
-							<a class="btn btn-danger btn-sm" href="{{ route('eliminar.actividad', $act->id) }}">
+							<a class="btn btn-danger btn-sm" href="{{ route('profesor.eliminar.actividad', $act->id) }}">
 								<i class="fas fa-trash"></i>
 							</a>
 						</td>

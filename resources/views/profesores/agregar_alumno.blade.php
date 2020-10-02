@@ -27,7 +27,7 @@
 </div>
 @endif
 
-<form action="{{ route('nuevoAlumno') }}" method="POST">
+<form action="{{ route('profesor.nuevoAlumno') }}" method="POST">
   {{ csrf_field() }}
 	<div class="card-body">
 	  <div class="form-group">
@@ -65,7 +65,7 @@
 			<option> NEE de tipo transitoria</option>
 		  </select>
 	  </div>
-	  <div class="form-group">
+	  {{-- <div class="form-group">
 		<label>Profesor</label>
 		  <select class="custom-select" name="profesor_id">
 			@foreach ($profesores as $profesor) {
@@ -73,7 +73,7 @@
 			}
 			@endforeach
 		  </select>
-	  </div>
+	  </div> --}}
 	</div>
 				
 	<div class="card card-footer">

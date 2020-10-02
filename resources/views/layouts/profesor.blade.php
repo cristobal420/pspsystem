@@ -64,80 +64,62 @@
 							</li>
 						</ul>
 					</li>
-
-		  <li class="nav-item has-treeview menu-close">
-			<a href="#" class="nav-link active">
-			  <i class="nav-icon fas fa-edit"></i>
-			  <p>
-				Construir actividad
-				<i class="fas fa-angle-left right"></i>
-			  </p>
-			</a>
-			<ul class="nav nav-treeview">
-			  <li class="nav-item">
-				<a href="{{ route('profesor.agregarActividad') }}" class="nav-link ">
-				  <i class="far fa-circle nav-icon"></i>
-				  <p>Crear actividad</p>
-				</a>
-			  </li>
-			  <li class="nav-item">
-				<a href=" {{ route('profesor.verActividades') }}" class="nav-link ">
-				  <i class="far fa-circle nav-icon"></i>
-				  <p>Visualizar actividades</p>
-				</a>
-			  </li>
-			</ul>
-		  </li>
-
-		</ul>
-	  </nav>
-	  <!-- /.sidebar-menu -->
+					<li class="nav-item has-treeview menu-close">
+						<a href="#" class="nav-link active">
+							<i class="nav-icon fas fa-edit"></i><p>Actividades<i class="fas fa-angle-left right"></i></p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="{{ route('profesor.agregarActividad') }}" class="nav-link ">
+									<i class="far fa-circle nav-icon"></i><p>Crear actividad</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href=" {{ route('profesor.verActividades') }}" class="nav-link ">
+									<i class="far fa-circle nav-icon"></i><p>Visualizar actividades</p>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<!-- /.sidebar-menu -->
+		</div>
+		<!-- /.sidebar -->
+	</aside>
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6"><!-- <h1 class="m-0 text-dark">Agregar Nuevo Alumno</h1> --></div><!-- /.col -->
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							<li class="breadcrumb-item"><a href="{{ route('profesor.menu') }}">Inicio</a></li>
+							<li class="breadcrumb-item active">@yield('direccion')</li>
+						</ol>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.container-fluid -->
+		</div>
+		<!-- /.content-header -->
+		<!-- BODY DONDE IRA CONTENIDO -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					@yield('contenido')
+				</div><!--fin row-->
+			</div>
+		</div>
+		<!-- /.content -->
 	</div>
-	<!-- /.sidebar -->
-  </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-	<!-- Content Header (Page header) -->
-	<div class="content-header">
-	  <div class="container-fluid">
-		<div class="row mb-2">
-		  <div class="col-sm-6">
-			<!-- <h1 class="m-0 text-dark">Agregar Nuevo Alumno</h1> -->
-		  </div><!-- /.col -->
-		  <div class="col-sm-6">
-			<ol class="breadcrumb float-sm-right">
-			  <li class="breadcrumb-item"><a href="{{ route('profesor.menu') }}">Inicio</a></li>
-			  <li class="breadcrumb-item active">@yield('direccion')</li>
-			</ol>
-		  </div><!-- /.col -->
-		</div><!-- /.row -->
-	  </div><!-- /.container-fluid -->
-	</div>
-	<!-- /.content-header -->
-
-	<!-- BODY DONDE IRA CONTENIDO -->
-	<div class="content">
-	  <div class="container-fluid">
-		<div class="row">
-
-
-			@yield('contenido')
-
-
-		</div><!--fin row-->
-	  </div>
-	</div>
-	<!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
+<!-- /.content-wrapper -->
+<!-- Main Footer -->
+<footer class="main-footer">
 	<!-- Default to the left -->
 	<strong>Copyright &copy; 2017-2020 <a href="https://atlasdev.cl">Atlasdev.cl</a>.</strong> All rights reserved.
-  </footer>
+</footer>
 </div>
 <!-- ./wrapper -->
 

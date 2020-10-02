@@ -48,7 +48,7 @@ class ProfesorController extends Controller
 			'profesor_id' => 'required'
 		]);
 		
-		$pass = bcrypt('secret');
+		$pass = bcrypt($request->rut);
 
 		$alumno = new Alumnos;
 
@@ -128,7 +128,7 @@ class ProfesorController extends Controller
 		$actividad->subcategorias_id = $request->subcategorias;
 		$actividad->niveles_id = $request->niveles;
 		$actividad->save();
-		return redirect()->route('agregarPreguntas',$actividad->id);
+		return redirect()->route('profesor.agregarPreguntas',$actividad->id);
 
 	}
 	public function eliminarAct ($id)
