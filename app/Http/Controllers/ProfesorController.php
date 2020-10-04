@@ -14,6 +14,7 @@ use App\Niveles;
 use App\Actividades;
 use App\Preguntas;
 use App\Respuestas;
+use Flash;
 
 class ProfesorController extends Controller
 {
@@ -45,8 +46,16 @@ class ProfesorController extends Controller
 			'telefono' => 'numeric|required',
 			'email' => 'email|required',
 			'diagnostico' => 'required',
-			'profesor_id' => 'required'
 		]);
+
+		/* ##### VALIDACION ##### */
+		$alumn = Alumnos::withTrashed()->where('rut', $request->rut)
+			->where('profesores_id', auth('profesores')->user()->id)
+			->first();
+		if (!is_null($alumn)) {
+			Flash::error('Un alumno con ese rut ya está registrado en el sistema');
+			return redirect()->back();
+		}
 		
 		$pass = bcrypt($request->rut);
 
@@ -60,7 +69,7 @@ class ProfesorController extends Controller
 		$alumno->email = $request->email;
 		$alumno->password = $pass;
 		$alumno->NEE = $request->diagnostico;
-		$alumno->profesores_id = $request->profesor_id;
+		$alumno->profesores_id = auth('profesores')->user()->id;
 
 		$alumno->save();
 
