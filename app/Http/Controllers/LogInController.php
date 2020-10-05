@@ -9,7 +9,14 @@ class LogInController extends Controller
 {
 	public function Acceso()
 	{
-		return view('profesores.login');
+		/* VALIDACION ACCESO A LOGIN O MENU */
+		// $var = Auth::guard('profesores')->check();
+		$var = auth('profesores')->check();
+		if ($var) {
+			return redirect()->route('profesor.menu');
+		} else {
+			return view('profesores.login');
+		}
 	}
 
 	public function LogIn (Request $request)
