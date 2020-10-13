@@ -35,6 +35,17 @@ class ActividadesController extends Controller
 	{
 		/* ASIGNAR ACTIVIDAD A ALUMNO POR PARTE DE PROFESOR */
 		// id de alumno, request con datos de inicio, fecha termino de actividad (plazos), mas alumno.
+		$val = $request->validate([
+			'alumnos_id' => 'required',
+			'fecha_inicio' => 'required',
+			'fecha_termino' => 'required',
+			'tiempo' => 'required',
+		],[
+			'alumnos_id.required' => 'Debe seleccionar alumno',
+			'fecha_inicio.required' => 'Seleccione fecha de inicio de la actividad',
+			'fecha_termino.required' => 'Seleccione fecha de termino de la actividad',
+			'tiempo.required' => 'Ingrese tiempo de desarrollo',
+		]);
 	}
 }
 

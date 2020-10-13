@@ -19,6 +19,7 @@ class CreateActividadesAsignadasTable extends Migration
 			$table->unsignedBigInteger('alumnos_id')->nullable();
 			$table->date('fecha_inicio')->nullable();
 			$table->date('fecha_termino')->nullable();
+			$table->time('tiempo')->nullable();
 			$table->string('estado')->nullable();
 			$table->softDeletes();
 			$table->timestamps();
