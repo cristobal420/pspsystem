@@ -11,6 +11,7 @@ use App\Niveles;
 use App\Actividades;
 use App\Preguntas;
 use App\Respuestas;
+use App\ActividadesAsignadas;
 use Flash;
 use Auth;
 use Mail;
@@ -30,6 +31,10 @@ class ActividadesController extends Controller
 	public function __construct ()
 	{
 		//
+	}
+	public static function notificarAlumn (ActividadesAsignadas $act)
+	{
+		// MAIL notificando al alumno de que se le ha asignado una actividad
 	}
 	public function asignar (Request $request, $id)
 	{
