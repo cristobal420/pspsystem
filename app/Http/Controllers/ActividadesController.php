@@ -27,4 +27,28 @@ class ActividadesController extends Controller
 	// Guardar respuestas, resultados, etc.
 	// Generar y enviar reportes al alumno.
 	/* ##### OBJETIVOS ##### */
+	public function __construct ()
+	{
+		//
+	}
+	public function asignar (Request $request, $id)
+	{
+		/* ASIGNAR ACTIVIDAD A ALUMNO POR PARTE DE PROFESOR */
+		// id de alumno, request con datos de inicio, fecha termino de actividad (plazos), mas alumno.
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

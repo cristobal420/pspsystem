@@ -484,10 +484,12 @@ class ComposerStaticInit7b4192f45dc498215b14b0dc652e4350
 
     public static $classMap = array (
         'App\\Actividades' => __DIR__ . '/../..' . '/app/Actividades.php',
+        'App\\ActividadesAsignadas' => __DIR__ . '/../..' . '/app/ActividadesAsignadas.php',
         'App\\Alumnos' => __DIR__ . '/../..' . '/app/Alumnos.php',
         'App\\Categorias' => __DIR__ . '/../..' . '/app/Categorias.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\ActividadesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ActividadesController.php',
         'App\\Http\\Controllers\\AlumnosController' => __DIR__ . '/../..' . '/app/Http/Controllers/AlumnosController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
