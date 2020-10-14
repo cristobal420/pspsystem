@@ -72,3 +72,7 @@ Route::group(['prefix' => 'alumno', 'as' => 'alumno.'], function() {
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
