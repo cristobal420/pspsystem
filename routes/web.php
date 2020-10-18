@@ -25,7 +25,7 @@ Route::group(['prefix' => 'profesor', 'as' => 'profesor.'], function() {
 	Route::group(['middleware' => ['auth:profesores']], function() {
 		/* ##### Rutas que requieren autenticación ##### */
 		Route::get('logout', 'LogInController@logoutP')->name('logout');
-	    Route::get('/menu','ProfesorController@menuPrincipal')->name('menu');
+		Route::get('/menu','ProfesorController@menuPrincipal')->name('menu');
 
 		Route::get('/agregar-alumno','ProfesorController@agregarAlumno')->name('agregarAlumno');
 		Route::post('/nuevo-alumno','ProfesorController@nuevoAlumno')->name('nuevoAlumno');
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'alumno', 'as' => 'alumno.'], function() {
 	Route::post('/login', 'LogInController@LogIn')->name('login');
 
 	Route::group(['middleware' => ['auth:alumno']], function() {
-	    /* ##### Rutas que requieren autenticación ##### */
+		/* ##### Rutas que requieren autenticación ##### */
 	});
 });
 /* ########## RUTAS DEFINITIVAS ########## */
@@ -75,4 +75,4 @@ Route::group(['prefix' => 'alumno', 'as' => 'alumno.'], function() {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
