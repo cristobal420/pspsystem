@@ -1,12 +1,15 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/ui/compare/v2.4.1...2.x)
+## [Unreleased](https://github.com/laravel/ui/compare/v3.0.0...3.x)
 
 
-## [v2.4.1 (2020-09-22)](https://github.com/laravel/ui/compare/v2.4.0...v2.4.1)
+## [v3.0.0 (2020-09-11)](https://github.com/laravel/ui/compare/v2.4.0...v3.0.0)
 
-### Changed
-- Revert "Add namespace check to Auth routes" ([#160](https://github.com/laravel/ui/pull/160))
+### Added
+- Laravel 8 support ([#155](https://github.com/laravel/ui/pull/155))
+
+### Fixed
+- Fetch reset token explicitly ([#130](https://github.com/laravel/ui/pull/130))
 
 
 ## [v2.4.0 (2020-09-11)](https://github.com/laravel/ui/compare/v2.3.0...v2.4.0)
